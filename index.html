@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Minecraft_Slimy_Pixel_Art.svg/1200px-Minecraft_Slimy_Pixel_Art.svg.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biogle - Buscador del Microcosmos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              logo: ['Fredoka', 'sans-serif'],
+              body: ['Nunito', 'sans-serif'],
+            },
+            colors: {
+              bio: {
+                lime: '#d9f99d', // Lime 200
+                leaf: '#bef264', // Lime 300
+                dark: '#3f6212', // Lime 800
+                accent: '#84cc16', // Lime 500
+                soft: '#ecfccb', // Lime 100
+              }
+            },
+            animation: {
+              'bounce-slow': 'bounce 3s infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'wiggle': 'wiggle 1s ease-in-out infinite',
+            },
+            keyframes: {
+              wiggle: {
+                '0%, 100%': { transform: 'rotate(-3deg)' },
+                '50%': { transform: 'rotate(3deg)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #f7fee7; /* lime-50 */
+        transition: background-color 0.3s ease;
+      }
+      .dark body {
+        background-color: #0f172a; /* slate-900 */
+      }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #84cc16;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #65a30d;
+      }
+
+      /* Intro Animation Keyframes - REWORKED per user request */
+      /* The Dot falls from sky, hits the top of the 'i' stem, bounces up, then settles */
+      @keyframes dot-bounce-i {
+        0% { transform: translateY(-300px) scale(1); opacity: 0; }
+        30% { transform: translateY(0px) scale(1.3, 0.7); opacity: 1; } /* Hit stem top */
+        45% { transform: translateY(-60px) scale(0.9, 1.1); } /* Bounce up */
+        60% { transform: translateY(0px) scale(1.1, 0.9); } /* Land again */
+        75% { transform: translateY(-20px) scale(0.98, 1.02); } /* Small bounce */
+        100% { transform: translateY(0px) scale(1); } /* Settle */
+      }
+
+      /* The Stem squashes when hit */
+      @keyframes stem-squash {
+        0% { transform: scaleY(1); }
+        30% { transform: scaleY(0.8); transform-origin: bottom; } /* Impact squish */
+        45% { transform: scaleY(1.1); transform-origin: bottom; } /* Rebound stretch */
+        60% { transform: scaleY(0.95); transform-origin: bottom; }
+        100% { transform: scaleY(1); transform-origin: bottom; }
+      }
+
+      .animate-dot-bounce {
+        animation: dot-bounce-i 1.8s ease-out forwards;
+      }
+
+      .animate-stem-impact {
+        animation: stem-squash 1.8s ease-out forwards;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

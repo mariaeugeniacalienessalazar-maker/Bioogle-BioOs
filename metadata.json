@@ -1,0 +1,7 @@
+{
+  "name": "Biogle (BioOs) Tu aplicación de búsqueda.",
+  "description": "Un buscador inteligente especializado en el microcosmos. Explora bacterias, virus y células con validación por IA, ilustraciones generadas y enlaces directos a investigación.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
